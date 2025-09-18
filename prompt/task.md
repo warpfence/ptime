@@ -1,15 +1,15 @@
 # EngageNow 구현 작업 명세서 (Task.md)
 
 > **참고**: 코드 구현 템플릿은 별도 파일에서 확인하세요.
-> - Backend 설정: @./templates/backend-setup.md
-> - 데이터베이스 모델: @./templates/database-models.md
-> - 인증 시스템: @./templates/auth-system.md
-> - 세션 관리: @./templates/session-management.md
-> - WebSocket 채팅: @./templates/websocket-chat.md
-> - Frontend 설정: @./templates/frontend-setup.md
-> - Frontend 컴포넌트: @./templates/frontend-components.md
-> - 채팅 컴포넌트: @./templates/chat-components.md
-> - 테스팅 및 배포: @./templates/testing-deployment.md
+> - Backend 설정: @backend-setup.md
+> - 데이터베이스 모델: @database-models.md
+> - 인증 시스템: @auth-system.md
+> - 세션 관리: @session-management.md
+> - WebSocket 채팅: @websocket-chat.md
+> - Frontend 설정: @frontend-setup.md
+> - Frontend 컴포넌트: @frontend-components.md
+> - 채팅 컴포넌트: @chat-components.md
+> - 테스팅 및 배포: @testing-deployment.md
 
 ## 1. Phase 1: 기본 인프라 및 인증 시스템 (2주)
 
