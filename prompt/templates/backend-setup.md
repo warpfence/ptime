@@ -1,34 +1,7 @@
 # Backend 설정 템플릿
 
 ## 1. Docker 환경 설정
-
-### docker-compose.yml
-```yaml
-version: '3.8'
-
-services:
-  postgres:
-    image: postgres:15
-    environment:
-      - POSTGRES_DB=engagenow
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=password
-    ports:
-      - "5432:5432"
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-
-  redis:
-    image: redis:7-alpine
-    ports:
-      - "6379:6379"
-    volumes:
-      - redis_data:/data
-
-volumes:
-  postgres_data:
-  redis_data:
-```
+@docker-compose_engagenow.yml 참조
 
 ## 2. FastAPI 프로젝트 구조
 

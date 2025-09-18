@@ -19,20 +19,26 @@
 **우선순위**: P0 (Critical) | **소요시간**: 1일 | **담당자**: Backend Developer
 
 **작업 내용**:
-- [ ] Docker Compose 설정 파일 작성 (참고: @backend-setup.md)
-- [ ] 프로젝트 폴더 구조 생성
-- [ ] PostgreSQL 15+ 컨테이너 설정
-- [ ] Redis 7+ 컨테이너 설정
-- [ ] 개발용 환경 변수 설정
+- [x] Docker Compose 설정 파일 작성 (참고: @backend-setup.md)
+- [x] 프로젝트 폴더 구조 생성
+- [x] PostgreSQL 15+ 접속정보 설정 (NAS 설정)
+- [x] Redis 7+ 접속정보 설정 (NAS 설정)
+- [x] 개발용 환경 변수 설정
 
 **완료 기준**:
 - Docker Compose로 PostgreSQL, Redis 정상 구동
 - 개발 환경에서 데이터베이스 연결 확인
 
 **테스트 계획**:
-- `docker-compose up` 실행 후 모든 서비스 정상 구동 확인
-- PostgreSQL 접속 테스트: `psql -h localhost -U postgres`
-- Redis 접속 테스트: `redis-cli ping`
+- PostgreSQL 접속 테스트:
+    - url : honi001.synology.me
+    - port : 9000
+    - POSTGRES_DB=engagenow
+    - POSTGRES_USER=hooni1939
+    - POSTGRES_PASSWORD=qweruiopyt1!
+- Redis 접속 테스트:
+    - url : honi001.synology.me
+    - port : 9000
 
 ---
 
@@ -40,11 +46,11 @@
 **우선순위**: P0 (Critical) | **소요시간**: 1일 | **담당자**: Backend Developer
 
 **작업 내용**:
-- [ ] FastAPI 프로젝트 초기화 (참고: @backend-setup.md)
-- [ ] 필수 라이브러리 설치 및 requirements.txt 작성
-- [ ] 기본 프로젝트 구조 생성
-- [ ] FastAPI main.py 앱 진입점 생성
-- [ ] 설정 관리 시스템 구축
+- [x] FastAPI 프로젝트 초기화 (참고: @backend-setup.md)
+- [x] 필수 라이브러리 설치 및 requirements.txt 작성
+- [x] 기본 프로젝트 구조 생성
+- [x] FastAPI main.py 앱 진입점 생성
+- [x] 설정 관리 시스템 구축
 
 **API 스펙**:
 - 기본 헬스체크 엔드포인트: `GET /health`
@@ -65,11 +71,11 @@
 **우선순위**: P0 (Critical) | **소요시간**: 1일 | **담당자**: Frontend Developer
 
 **작업 내용**:
-- [ ] Next.js 14 프로젝트 초기화 (참고: @frontend-setup.md)
-- [ ] 필수 라이브러리 설치
-- [ ] Shadcn/ui 컴포넌트 라이브러리 설정
-- [ ] 프로젝트 구조 생성
-- [ ] Tailwind CSS 설정
+- [x] Next.js 14 프로젝트 초기화 (참고: @frontend-setup.md)
+- [x] 필수 라이브러리 설치
+- [x] Shadcn/ui 컴포넌트 라이브러리 설정
+- [x] 프로젝트 구조 생성
+- [x] Tailwind CSS 설정
 
 **완료 기준**:
 - Next.js 개발 서버 정상 구동 (포트: 3000)
@@ -88,14 +94,14 @@
 **우선순위**: P0 (Critical) | **소요시간**: 2일 | **담당자**: Backend Developer
 
 **작업 내용**:
-- [ ] 기본 모델 클래스 생성 (참고: @database-models.md)
-- [ ] 사용자 모델 생성
-- [ ] 세션 모델 생성
-- [ ] 참여자 모델 생성
-- [ ] 모듈 모델 생성
-- [ ] 채팅 메시지 모델 생성
-- [ ] Q&A 모델 생성
-- [ ] 투표 모델 생성
+- [x] 기본 모델 클래스 생성 (참고: @database-models.md)
+- [x] 사용자 모델 생성
+- [x] 세션 모델 생성
+- [x] 참여자 모델 생성
+- [x] 모듈 모델 생성
+- [x] 채팅 메시지 모델 생성
+- [x] Q&A 모델 생성
+- [x] 투표 모델 생성
 
 **완료 기준**:
 - 모든 모델 클래스 생성 완료
@@ -112,10 +118,10 @@
 **우선순위**: P0 (Critical) | **소요시간**: 1일 | **담당자**: Backend Developer
 
 **작업 내용**:
-- [ ] Alembic 초기 설정
-- [ ] alembic.ini 설정 파일 수정
-- [ ] 초기 마이그레이션 파일 생성
-- [ ] 마이그레이션 실행 및 검증
+- [x] Alembic 초기 설정
+- [x] alembic.ini 설정 파일 수정
+- [x] 초기 마이그레이션 파일 생성
+- [x] 마이그레이션 실행 및 검증
 
 **완료 기준**:
 - 데이터베이스에 모든 테이블 생성 확인
@@ -133,10 +139,10 @@
 **우선순위**: P0 (Critical) | **소요시간**: 2일 | **담당자**: Backend Developer
 
 **작업 내용**:
-- [ ] JWT 설정 및 유틸리티 함수 생성 (참고: @auth-system.md)
-- [ ] 인증 미들웨어 구현
-- [ ] 토큰 생성/검증 로직 구현
-- [ ] 보안 설정 강화
+- [x] JWT 설정 및 유틸리티 함수 생성 (참고: @auth-system.md)
+- [x] 인증 미들웨어 구현
+- [x] 토큰 생성/검증 로직 구현
+- [x] 보안 설정 강화
 
 **API 스펙**:
 - 토큰 검증: `Authorization: Bearer <token>`
@@ -156,10 +162,10 @@
 **우선순위**: P0 (Critical) | **소요시간**: 2일 | **담당자**: Backend Developer
 
 **작업 내용**:
-- [ ] Google OAuth 설정 (참고: @auth-system.md)
-- [ ] OAuth 인증 라우터 구현
-- [ ] 사용자 정보 저장 로직 구현
-- [ ] 토큰 생성 및 반환 처리
+- [x] Google OAuth 설정 (참고: @auth-system.md)
+- [x] OAuth 인증 라우터 구현
+- [x] 사용자 정보 저장 로직 구현
+- [x] 토큰 생성 및 반환 처리
 
 **API 스펙**:
 - Google 로그인 시작: `GET /auth/login/google`
