@@ -480,6 +480,3 @@ erDiagram
 5. **품질 관리**: 코드 리뷰, 성능 테스트, 보안 검토 기준
 
 이를 통해 개발팀이 체계적이고 효율적으로 **EngageNow** 플랫폼을 구현할 수 있도록 지원합니다.
-
-다음으로 @interactive-presentation-prd.md 기준으로 작성된, @plan.md 를 바탕으로 task.md 파일을 작성해줘.
-task.md 파일의 작성은 @plan.md 에서 `## 5. 다음 단계: task.md 작성 가이드`를 참고하여 작성해야 해.
