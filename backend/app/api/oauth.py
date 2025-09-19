@@ -45,6 +45,14 @@ async def google_login_start(
             detail="Google OAuth 서비스를 사용할 수 없습니다. 관리자에게 문의해주세요."
         )
 
+    # 개발용 임시 처리: 실제 Google OAuth 설정이 없을 때
+    if settings.google_client_id.startswith("test-") or settings.google_client_id == "your-google-client-id.apps.googleusercontent.com":
+        # 개발용 mock 응답
+        return OAuthLoginResponse(
+            authorization_url="https://accounts.google.com/oauth/authorize?client_id=mock&redirect_uri=mock&response_type=code&scope=openid%20email%20profile&state=mock_state",
+            state="mock_state"
+        )
+
     # PKCE와 state 생성
     state = google_oauth.generate_state()
     code_verifier, code_challenge = google_oauth.generate_pkce_challenge()
