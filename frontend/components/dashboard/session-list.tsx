@@ -192,7 +192,7 @@ function SessionCard({
             <span className="text-muted-foreground">참여자</span>
             <div className="flex items-center gap-1">
               <Users className="h-4 w-4 text-muted-foreground" />
-              <span className="font-medium">{session.current_participants}</span>
+              <span className="font-medium">{session.participant_count}</span>
               {session.max_participants && (
                 <span className="text-muted-foreground">/ {session.max_participants}</span>
               )}

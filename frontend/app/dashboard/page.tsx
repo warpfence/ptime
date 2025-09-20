@@ -6,6 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { AuthGuard } from '@/components/auth';
 import { DashboardLayout, SessionList, CreateSessionDialog } from '@/components/dashboard';
+import { QRCodeDialog } from '@/components/qr-code';
 import { Session, SessionStats, CreateSessionRequest } from '@/types/session';
 import { useAuthStore } from '@/lib/stores/auth-store';
 
@@ -16,23 +17,21 @@ const mockSessions: Session[] = [
     title: '2024 Q3 성과 발표',
     description: '3분기 성과 발표 및 Q4 계획 공유',
     session_code: 'ABC123',
+    qr_code_url: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==',
     is_active: true,
-    max_participants: 50,
-    current_participants: 23,
+    participant_count: 23,
     created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
-    creator_id: 'user1',
+    started_at: new Date().toISOString(),
   },
   {
     id: '2',
     title: '팀 미팅',
     description: '주간 팀 미팅 및 프로젝트 진행 상황 공유',
     session_code: 'DEF456',
+    qr_code_url: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==',
     is_active: false,
-    current_participants: 0,
+    participant_count: 0,
     created_at: new Date(Date.now() - 86400000).toISOString(),
-    updated_at: new Date(Date.now() - 86400000).toISOString(),
-    creator_id: 'user1',
   },
 ];
 
@@ -49,6 +48,7 @@ export default function DashboardPage() {
   const [stats, setStats] = useState<SessionStats>(mockStats);
   const [isCreateDialogOpen, setIsCreateDialogOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [selectedSessionForQR, setSelectedSessionForQR] = useState<Session | null>(null);
 
   const handleCreateSession = async (data: CreateSessionRequest) => {
     try {
@@ -60,12 +60,10 @@ export default function DashboardPage() {
         title: data.title,
         description: data.description,
         session_code: Math.random().toString(36).substr(2, 6).toUpperCase(),
+        qr_code_url: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==',
         is_active: false,
-        max_participants: data.max_participants,
-        current_participants: 0,
+        participant_count: 0,
         created_at: new Date().toISOString(),
-        updated_at: new Date().toISOString(),
-        creator_id: user?.id || '',
       };
 
       setSessions(prev => [newSession, ...prev]);
@@ -109,7 +107,7 @@ export default function DashboardPage() {
 
   const handleShowQRCode = (session: Session) => {
     console.log('QR 코드 표시:', session);
-    // TODO: QR 코드 다이얼로그 열기
+    setSelectedSessionForQR(session);
   };
 
   return (
@@ -213,6 +211,13 @@ export default function DashboardPage() {
           open={isCreateDialogOpen}
           onOpenChange={setIsCreateDialogOpen}
           onCreateSession={handleCreateSession}
+        />
+
+        {/* QR 코드 다이얼로그 */}
+        <QRCodeDialog
+          session={selectedSessionForQR}
+          isOpen={!!selectedSessionForQR}
+          onClose={() => setSelectedSessionForQR(null)}
         />
       </DashboardLayout>
     </AuthGuard>

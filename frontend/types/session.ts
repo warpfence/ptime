@@ -3,13 +3,12 @@ export interface Session {
   title: string;
   description?: string;
   session_code: string;
-  qr_code?: string;
+  qr_code_url?: string;
   is_active: boolean;
-  max_participants?: number;
-  current_participants: number;
+  participant_count: number;
   created_at: string;
-  updated_at: string;
-  creator_id: string;
+  started_at?: string;
+  ended_at?: string;
 }
 
 export interface CreateSessionRequest {
